@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventTrade - Доставка салфеток </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">🐱 Event-Trade</h1>
+        </header>
+
+        <main class="main">
+            <div class="tab-navigation">
+                <button class="tab-btn active" id="products-tab" onclick="switchTab('products')">Товары</button>
+                <button class="tab-btn" id="cart-tab" onclick="switchTab('cart')">
+                    Корзина <span id="cart-badge">0</span>
+                </button>
+                <button class="tab-btn" id="orders-tab" onclick="switchTab('orders')">
+                    Мои заказы <span id="orders-badge">0</span>
+                </button>
+                <button class="tab-btn" id="info-tab" onclick="switchTab('info')">Информация</button>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-section active" id="products-section">
+                    <div class="products-grid" id="products-grid"></div>
+                </div>
+
+                <div class="tab-section" id="cart-section">
+                    <div class="cart-header">
+                        <h2>Ваш заказ</h2>
+                    </div>
+                    <div class="cart-content">
+                        <div class="cart-items" id="cart-items">
+                            <p class="empty-cart">Корзина пуста</p>
+                        </div>
+                        <div class="cart-footer">
+                            <div class="cart-total" id="cart-total" style="display: none;">
+                                <div class="total-amount">Итого: <span id="total-price">0</span> ₽</div>
+                            </div>
+                            <button class="checkout-btn" id="checkout-btn" onclick="switchTab('checkout')"
+                                style="display: none;">
+                                Оформить заказ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-section" id="orders-section">
+                    <div class="orders-header">
+                        <h2>Мои заказы</h2>
+                    </div>
+                    <div class="orders-content">
+                        <div class="orders-tabs">
+                            <button class="orders-tab-btn active" onclick="switchOrdersTab('active')">
+                                Активные <span id="active-orders-badge">0</span>
+                            </button>
+                            <button class="orders-tab-btn" onclick="switchOrdersTab('delivered')">
+                                Доставленные <span id="delivered-orders-badge">0</span>
+                            </button>
+                        </div>
+                        <div class="orders-list-container">
+                            <div class="orders-tab-section active" id="active-orders-section">
+                                <div class="orders-list" id="active-orders-list">
+                                    <p class="empty-orders">Нет активных заказов</p>
+                                </div>
+                            </div>
+                            <div class="orders-tab-section" id="delivered-orders-section">
+                                <div class="orders-list" id="delivered-orders-list">
+                                    <p class="empty-orders">Нет доставленных заказов</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-section" id="info-section">
+                    <div class="info-header">
+                        <h2>Информация о товарах и доставке</h2>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-block">
+                            <h3>Наши товары</h3>
+                            <div class="product-info-grid">
+                                <div class="product-info-card">
+                                    <h4>Neko-Active</h4>
+                                    <p class="product-price-info">500 ₽</p>
+                                    <p>Влажные полотенца NEKO Active размера XXL – многофункциональные средства для гигиены тела для взрослых и детей, включая новорожденных. Набор включает два полотна: самопеняющееся и моющее – идеальное средство для личной, интимной и детской гигиены без воды и спирта. Салфетки гипоаллергенные, с антибактериальной пропиткой на основе натуральных экстрактов (огурец, алоэ вера, касторовое масло).</p>
+                                    <ul>
+                                        <li>4 салфеток в упаковке</li>
+                                        <li>Антибактериальный и дезинфицирующий эффект</li>
+                                    </ul>
+                                </div>
+                                <div class="product-info-card">
+                                    <h4>Neko-Clinic</h4>
+                                    <p class="product-price-info">1200 ₽</p>
+                                    <p>Влажные полотенца NEKO Clinic — это идеальное решение для тех, кто ценит гигиенический уход в любых условиях. Упаковка содержит 6 влажных и 6 сухих полотенец, что делает их универсальными для повседневного использования. Вы можете взять их с собой на тренировку, в поездку или использовать дома для быстрого гигиенического ухода, обеспечивая необходимую гигиену в трудные моменты.</p>
+                                    <ul>
+                                        <li>12 салфеток в упаковке</li>
+                                        <li>Антибактериальный и дезинфицирующий эффект</li>
+                                    </ul>
+                                </div>
+                                <div class="product-info-card">
+                                    <h4>Neko-Grill</h4>
+                                    <p class="product-price-info">850 ₽</p>
+                                    <p>NEKO Grill – идеальный помощник для удаления жира, сажи и нагара без воды. Эти универсальные хозтовары подходят для чистки гриля, металлических решеток, сковородок, воков, шампуров, вафельниц, плиты, микроволновки, духовки и другого кухонного инвентаря. Они эффективно справляются с бытовыми загрязнениями и пищевыми остатками, упрощая процесс уборки.</p>
+                                    <ul>
+                                        <li>12 салфеток в упаковке</li>
+                                        <li>Эффективное удаление жира и нагара</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <h3>Доставка заказов</h3>
+                            <div class="delivery-info">
+                                <div class="delivery-card">
+                                    <div class="delivery-icon">🚚</div>
+                                    <h4>Курьерская доставка</h4>
+                                    <p>Доставляем заказы курьерами прямо к вашей палатке на территории фестиваля</p>
+                                </div>
+                                <div class="delivery-card">
+                                    <div class="delivery-icon">⏱️</div>
+                                    <h4>Время доставки</h4>
+                                    <p>15-25 минут с момента оформления заказа в зависимости от загруженности</p>
+                                </div>
+                                <div class="delivery-card">
+                                    <div class="delivery-icon">📍</div>
+                                    <h4>Зона обслуживания</h4>
+                                    <p>Все зоны кемпинга: A, B, D, E. Доставка осуществляется по всей территории фестиваля</p>
+                                </div>
+                                <div class="delivery-card">
+                                    <div class="delivery-icon">💳</div>
+                                    <h4>Оплата</h4>
+                                    <p>Онлайн-оплата на сайте. Принимаем банковские карты всех банков</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <h3>Как заказать</h3>
+                            <div class="steps">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Выберите товары</h4>
+                                        <p>Добавьте нужные салфетки в корзину в разделе "Товары"</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Укажите палатку</h4>
+                                        <p>При оформлении заказа укажите номер своей палатки (буква-номер)</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Оплатите заказ</h4>
+                                        <p>Произведите оплату онлайн банковской картой</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Ожидайте курьера</h4>
+                                        <p>Курьер доставит заказ к вашей палатке в течение 15-25 минут</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <h3>Контакты</h3>
+                            <div class="contacts-info">
+                                <p><strong>Организатор:</strong> ООО "ПУЛЬС ПЛЮС"</p>
+                                <p><strong>Время работы:</strong> Весь период фестиваля, 24/7</p>
+                                <p><strong>Поддержка:</strong> Через чат с курьером после взятия заказа в работу</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-section" id="checkout-section">
+                    <div class="checkout-header">
+                        <button class="back-btn" onclick="switchTab('cart')">← Назад</button>
+                        <h2>Оформление заказа</h2>
+                    </div>
+                    <div class="checkout-content">
+                        <form class="checkout-form" id="checkout-form">
+                            <div class="form-group">
+                                <label for="tent-selector">Номер палатки *</label>
+                                <div class="tent-selector">
+                                    <select id="tent-letter" required>
+                                        <option value="">Буква</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                    </select>
+                                    <span class="tent-separator">-</span>
+                                    <div class="tent-number-container">
+                                        <input type="number" id="tent-number" required min="1" max="999"
+                                            placeholder="001">
+                                        <div class="tent-number-list" id="tent-number-list"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Телефон (необязательно)</label>
+                                <input type="tel" id="phone" placeholder="+7 (___) ___-__-__">
+                            </div>
+                            <div class="order-summary">
+                                <h3>Ваш заказ:</h3>
+                                <div id="order-items"></div>
+                                <div class="final-total">Итого: <span id="final-price">0</span> ₽</div>
+                            </div>
+                            <button type="submit" class="payment-btn">💳 Оплатить заказ</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tab-section" id="payment-section">
+                    <div class="payment-success">
+                        <div class="success-icon">✅</div>
+                        <h2>Заказ оплачен и принят!</h2>
+                        <p>Номер заказа: <span id="order-id"></span></p>
+                        <p>Курьер доставит салфетки в палатку <span id="delivery-tent"></span></p>
+                        <p>Ожидаемое время доставки: 15-20 минут</p>
+                        <button class="new-order-btn" onclick="newOrder()">Новый заказ</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="chat-modal" id="chat-modal" style="display: none;">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3 id="chat-title">Чат с курьером</h3>
+                    <button class="chat-close-btn" onclick="closeChat()">×</button>
+                </div>
+                <div class="chat-messages" id="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input type="text" id="chat-input" placeholder="Введите сообщение...">
+                    <button class="chat-send-btn" onclick="sendMessage()">Отправить</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
