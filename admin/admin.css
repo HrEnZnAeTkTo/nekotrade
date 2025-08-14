@@ -214,7 +214,7 @@ body {
 }
 
 .logout-btn {
-    background: #dc3545;
+    background: #ff6b35;
     color: white;
     border: none;
     padding: 8px 15px;
@@ -225,7 +225,7 @@ body {
 }
 
 .logout-btn:hover {
-    background: #c82333;
+    background: #da5a2b;
     transform: translateY(-1px);
 }
 
@@ -832,7 +832,7 @@ body {
 
 .stat-label {
     font-size: 0.85rem;
-    color: #666;
+    color: #ffffff;
 }
 
 /* Контент секций */
@@ -901,7 +901,7 @@ body {
 
 .order-status.active,
 .courier-status.working {
-    background: #28a745;
+    background: #FF6B35;
     color: white;
 }
 

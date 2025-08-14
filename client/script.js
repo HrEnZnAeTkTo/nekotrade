@@ -367,7 +367,7 @@ const renderCart = () => {
                     <span style="padding: 0 8px; font-weight: 600; font-size: 0.9rem;">${item.quantity}</span>
                     <button class="qty-btn" onclick="updateCartItem(${index}, 1)">+</button>
                 </div>
-                <button class="qty-btn" onclick="removeFromCart(${index})" style="background: #dc3545;">×</button>
+                <button class="qty-btn" onclick="removeFromCart(${index})" style="background: #ffffffff;">×</button>
             </div>
         </div>
     `).join('');

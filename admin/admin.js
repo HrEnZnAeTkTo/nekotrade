@@ -785,7 +785,7 @@ const renderProductsChart = () => {
     if (!ctx) return;
 
     const productAnalytics = calculateProductAnalytics(allOrders, allProducts);
-    const topProducts = productAnalytics.slice(0, 5);
+    const topProducts = productAnalytics.slice(0, 3);
 
     if (productsChart) {
         productsChart.destroy();
@@ -798,10 +798,8 @@ const renderProductsChart = () => {
             datasets: [{
                 data: topProducts.map(p => p.totalSold),
                 backgroundColor: [
-                    '#20B2AA',
-                    '#17a2b8',
-                    '#28a745',
                     '#FF6B35',
+                    '#00A890',
                     '#6f42c1'
                 ]
             }]
@@ -1502,7 +1500,7 @@ window.showOrderDetails = (orderId) => {
                 <div class="modal-order-info">
                     <div class="info-item">
                         <div class="info-label">Статус</div>
-                        <div class="info-value">${order.status === 'active' ? 'Активен' : 'Завершён'}</div>
+                        <div class="info-value" style = "background: #FF6B35">${order.status === 'active' ? 'Активен' : 'Завершён'}</div>
                     </div>
                     <div class="info-item">
                         <div class="info-label">Палатка</div>
