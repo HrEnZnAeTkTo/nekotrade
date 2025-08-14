@@ -397,13 +397,13 @@ body {
 }
 
 .add-product-btn {
-    background: #28a745;
+    background: #00A890;
     color: white;
-    border-color: #28a745;
+    border-color: #00A890;
 }
 
 .add-product-btn:hover {
-    background: #218838;
+    background: #1a9b93;
     transform: translateY(-1px);
 }
 
@@ -687,7 +687,7 @@ body {
 }
 
 .financial-value.growth {
-    color: #28a745;
+    color: #00A890;
 }
 
 /* Производительность курьеров */
@@ -832,7 +832,7 @@ body {
 
 .stat-label {
     font-size: 0.85rem;
-    color: #ffffff;
+    color: #333333;
 }
 
 /* Контент секций */
@@ -901,7 +901,7 @@ body {
 
 .order-status.active,
 .courier-status.working {
-    background: #FF6B35;
+    background: #E37828;
     color: white;
 }
 
@@ -911,7 +911,7 @@ body {
 }
 
 .courier-status.active {
-    background: #17a2b8;
+    background: #E37828;
     color: white;
 }
 
@@ -921,7 +921,7 @@ body {
 }
 
 .product-stock-status.in-stock {
-    background: #28a745;
+    background: #00A890;
     color: white;
 }
 
@@ -995,13 +995,12 @@ body {
 }
 
 .action-btn.danger {
-    background: #dc3545;
+    background: #E37828;
 }
 
 .action-btn.danger:hover {
-    background: #c82333;
+    background: #c86520;
 }
-
 .action-btn.success {
     background: #28a745;
 }
